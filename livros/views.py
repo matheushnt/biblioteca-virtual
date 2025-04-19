@@ -30,3 +30,12 @@ def criar_livro(request):
     else:
         form = LivroForm()
     return render(request, 'livros/form.html', {'form': form})
+
+
+def editar_livro(request, pk):
+    livro = get_object_or_404(Livro, pk=pk)
+    form = LivroForm(request.POST or None, instance=livro)
+    if form.is_valid():
+        form.save()
+        return redirect('livros:lista_livros')
+    return render(request, 'livros/form.html', {'form': form})

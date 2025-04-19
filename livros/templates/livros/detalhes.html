@@ -10,5 +10,8 @@
   <p><strong>Autor:</strong> {{ livro.autor }}</p>
   <p><strong>Data de Publicação:</strong> {{ livro.data_publicacao }}</p>
   <p><strong>ISBN:</strong> {{ livro.isbn }}</p>
+
+  <a href="{% url "livros:editar_livro" livro.pk %}">Editar</a>
+  <a href="{% url "livros:lista_livros" %}">Voltar</a>
 </body>
 </html>
