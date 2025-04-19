@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Catálogo de Livros</title>
 </head>
 <body>
-  <h1>Olá</h1>
+  <h1>Catálogo de Livros</h1>
+  <a href="">Adicionar Novo Livro</a>
+  <ul>
+    {% for livro in livros %}
+      <li>
+        <a href="{% url "livros:detalhes_livro" livro.pk %}">{{ livro.titulo }}</a>
+        {{ livro.autor }}
+      </li>
+    {% empty %}
+      <p>Nenhum livro encontrado.</p>
+    {% endfor %}
+  </ul>
 </body>
 </html>
