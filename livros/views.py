@@ -39,3 +39,11 @@ def editar_livro(request, pk):
         form.save()
         return redirect('livros:lista_livros')
     return render(request, 'livros/form.html', {'form': form})
+
+
+def deletar_livro(request, pk):
+    livro = get_object_or_404(Livro, pk=pk)
+    if request.method == 'POST':
+        livro.delete()
+        return redirect('livros:lista_livros')
+    return render(request, 'livros/deletar.html', {'livro': livro, })
