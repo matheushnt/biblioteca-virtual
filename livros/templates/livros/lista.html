@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1>Catálogo de Livros</h1>
-  <a href="">Adicionar Novo Livro</a>
+  <a href="{% url "livros:criar_livro" %}">Adicionar Novo Livro</a>
   <ul>
     {% for livro in livros %}
       <li>
